@@ -1,0 +1,55 @@
+name: Defect
+description: Something is wrong. The behavior, a workflow, or a document.
+labels:
+  - needs-refinement
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Do not use this form for a defect in security.** Report that in private. See the
+        [security policy](https://github.com/lightedware/.github/security/policy).
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What must happen
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happens
+      description: Give the output. Remove each secret value and each token first.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: How to see it
+      value: |
+        1.
+        2.
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Where you saw it
+      description: The branch, or the commit that you looked at.
+      placeholder: main, commit 1a2b3c4
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - Critical — the service is down
+        - High — a release is blocked
+        - Normal
+        - Low
+    validations:
+      required: true
