@@ -1,6 +1,6 @@
 # Lightedware
 
-Lightedware makes software with agents.
+Lightedware makes software.
 
 - The website: [lightedware.com](https://lightedware.com)
 - A defect in security: read the
