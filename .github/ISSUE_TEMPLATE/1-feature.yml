@@ -1,0 +1,49 @@
+name: Feature or improvement
+description: New work, or a change to work that exists.
+labels:
+  - needs-refinement
+  - feature
+body:
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Outcome
+      description: What must be true after the work? Give the state, and not the steps.
+      placeholder: A person who signs in with an expired token gets a clear message.
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Why now? Name the problem that this solves.
+    validations:
+      required: true
+
+  - type: textarea
+    id: criteria
+    attributes:
+      label: Acceptance criteria
+      description: One line for each check.
+      value: |
+        - [ ]
+        - [ ]
+    validations:
+      required: true
+
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints and out of scope
+      description: >
+        Name each file and each path that the work must not touch. Name the work that belongs to a
+        different issue.
+
+  - type: checkboxes
+    id: rules
+    attributes:
+      label: Before you send this
+      options:
+        - label: This issue is in the repository that holds the code.
+          required: true
