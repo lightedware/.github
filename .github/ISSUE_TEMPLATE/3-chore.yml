@@ -1,0 +1,32 @@
+name: Chore
+description: Maintenance. A version update, a rename, a document, or a clean-up.
+labels:
+  - needs-refinement
+body:
+  - type: textarea
+    id: task
+    attributes:
+      label: What to do
+      description: One paragraph. A chore needs no long context.
+    validations:
+      required: true
+
+  - type: textarea
+    id: files
+    attributes:
+      label: Which files
+      description: >
+        Name each file. A change to a different file goes into a new issue.
+      value: |
+        -
+    validations:
+      required: true
+
+  - type: textarea
+    id: criteria
+    attributes:
+      label: Acceptance criteria
+      value: |
+        - [ ]
+    validations:
+      required: true
