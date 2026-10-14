@@ -1,0 +1,50 @@
+name: CI failure
+description: A CI run failed on the default branch, a job is flaky, or a runner failed.
+labels:
+  - needs-refinement
+  - ci-failure
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Look for an open issue with the `ci-failure` label first. Add a comment to that issue,
+        and do not open a second one.
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind
+      options:
+        - CI failure — a run on the default branch, a tag, a release, or a schedule failed
+        - Flake — a job failed, and a rerun of the same commit passed
+        - Runner error — the job did not start, or the runner stopped
+    validations:
+      required: true
+
+  - type: input
+    id: run
+    attributes:
+      label: The run
+      description: The link to the run or to the job.
+    validations:
+      required: true
+
+  - type: input
+    id: step
+    attributes:
+      label: The workflow, the job, and the failed step
+    validations:
+      required: true
+
+  - type: textarea
+    id: log
+    attributes:
+      label: The log
+      description: The last lines of the failed step. Remove each secret value and each token first.
+      render: text
+
+  - type: textarea
+    id: tried
+    attributes:
+      label: What you know
+      description: The first error, the last commit that passed, and each rerun.
