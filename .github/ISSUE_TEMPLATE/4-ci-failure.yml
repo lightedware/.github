@@ -7,6 +7,10 @@ body:
   - type: markdown
     attributes:
       value: |
+        This issue starts with the `needs-refinement` label. Keep it there until the outcome, scope, evidence, acceptance checks, dependencies, and human actions are clear. Add `agentic` only after a person has resolved any decision, approval, access, or operational step needed for the work. An agent must not guess or expand the scope.
+  - type: markdown
+    attributes:
+      value: |
         Look for an open issue with the `ci-failure` label first. Add a comment to that issue,
         and do not open a second one.
 
@@ -30,6 +34,14 @@ body:
       required: true
 
   - type: input
+    id: commit
+    attributes:
+      label: Branch or tag and commit
+      description: Include the commit SHA and the last known passing commit when known.
+    validations:
+      required: true
+
+  - type: input
     id: step
     attributes:
       label: The workflow, the job, and the failed step
@@ -39,12 +51,29 @@ body:
   - type: textarea
     id: log
     attributes:
-      label: The log
-      description: The last lines of the failed step. Remove each secret value and each token first.
+      label: First useful error and relevant log
+      description: The first actionable error and enough surrounding output. Remove each secret value and each token first.
       render: text
+
+  - type: textarea
+    id: next_step
+    attributes:
+      label: Next diagnostic or repair
+      description: State the smallest next step to identify or fix the cause. If unknown, say what must be investigated first.
+    validations:
+      required: true
 
   - type: textarea
     id: tried
     attributes:
       label: What you know
       description: The first error, the last commit that passed, and each rerun.
+
+  - type: textarea
+    id: human_actions
+    attributes:
+      label: Human action needed
+      description: Name any host access, rerun, production change, or maintenance window a person must handle. Write "None" if no human action is needed.
+      value: None
+    validations:
+      required: true
