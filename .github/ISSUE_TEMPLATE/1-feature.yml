@@ -4,6 +4,10 @@ labels:
   - needs-refinement
   - feature
 body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue starts with the `needs-refinement` label. Keep it there until the outcome, scope, evidence, acceptance checks, dependencies, and human actions are clear. Add `agentic` only after a person has resolved any decision, approval, access, or operational step needed for the work. An agent must not guess or expand the scope.
   - type: textarea
     id: outcome
     attributes:
@@ -22,13 +26,36 @@ body:
       required: true
 
   - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: What work belongs in this issue? Identify the relevant area; the agent may inspect related code to find the right implementation.
+    validations:
+      required: true
+
+  - type: textarea
     id: criteria
     attributes:
       label: Acceptance criteria
-      description: One line for each check.
+      description: One observable check per line, including how the result can be verified.
       value: |
         - [ ]
         - [ ]
+    validations:
+      required: true
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies and order
+      description: List blockers and prerequisites separately from related work. Write "None" when there are no blockers.
+
+  - type: textarea
+    id: human_actions
+    attributes:
+      label: Human decision or action needed
+      description: State any decision, approval, access, production action, or maintenance window needed. Write "None" when no human action is needed.
+      value: None
     validations:
       required: true
 
