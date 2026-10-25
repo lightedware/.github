@@ -7,6 +7,10 @@ body:
   - type: markdown
     attributes:
       value: |
+        This issue starts with the `needs-refinement` label. Keep it there until the outcome, scope, evidence, acceptance checks, dependencies, and human actions are clear. Add `agentic` only after a person has resolved any decision, approval, access, or operational step needed for the work. An agent must not guess or expand the scope.
+  - type: markdown
+    attributes:
+      value: |
         **Do not use this form for a defect in security.** Report that in private. See the
         [security policy](https://github.com/lightedware/.github/security/policy).
 
@@ -32,6 +36,39 @@ body:
       value: |
         1.
         2.
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Investigation and change scope
+      description: Separate confirmed facts from suspected causes. State the smallest investigation or change needed.
+    validations:
+      required: true
+
+  - type: textarea
+    id: criteria
+    attributes:
+      label: Acceptance criteria
+      description: Include a regression check and other observable results.
+      value: |
+        - [ ]
+    validations:
+      required: true
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies and order
+      description: List blockers and prerequisites, or write "None".
+
+  - type: textarea
+    id: human_actions
+    attributes:
+      label: Human decision or action needed
+      description: State any decision, approval, access, production action, or maintenance window needed. Write "None" when no human action is needed.
+      value: None
     validations:
       required: true
 
